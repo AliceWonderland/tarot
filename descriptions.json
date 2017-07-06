@@ -1,6 +1,6 @@
-const descriptions={
-    "source": "Tarot card interpretations, from Mark McElroy's _A Guide to Tarot Meanings_ (http://www.madebymark.com/a-guide-to-tarot-card-meanings/) and https://github.com/byronhulcher/tarot-deck",
-    "meanings": [
+{
+    "source": "Tarot card interpret, from Mark McElroy's _A Guide to Tarot Meanings_ (http://www.madebymark.com/a-guide-to-tarot-card-meanings/) and https://github.com/byronhulcher/tarot-deck https://raw.githubusercontent.com/dariusk/corpora/master/data/divination/tarot_interpret.json",
+    "interpret": [
         {
             "fortune_telling": [
                 "Watch for new projects and new beginnings",
@@ -2590,6 +2590,4 @@ const descriptions={
             "suit": "coins"
         }
     ]
-};
-
-export default descriptions;
+}

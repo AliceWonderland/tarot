@@ -27,7 +27,6 @@ const majors=[
     'Judgement',
     'The World'
 ];
-let deck=[];
 const fortunes={
     "source": "Tarot card interpret, from Mark McElroy's _A Guide to Tarot Meanings_ (http://www.madebymark.com/a-guide-to-tarot-card-meanings/) and https://github.com/byronhulcher/tarot-deck https://raw.githubusercontent.com/dariusk/corpora/master/data/divination/tarot_interpret.json",
     "interpret": [
@@ -2621,47 +2620,24 @@ const fortunes={
         }
     ]
 };
+let deck=[];
 
 function makeDeck(){
     let arr=[];
 
-    // // make cards using .forEach, .push, .map
-    // suits.forEach(function (suit) {
-    //     arr=(suit==='major') ? majors : ranks;
-    //     deck.push(
-    //         arr.map(function(rank,idx) {
-    //             return makeCard(suit,rank,idx);
-    //         })
-    //     );
-    // });
-    //
-    // // join arrays using .reduce, remove 0 ranks using .filter
-    // deck=deck
-    //     .reduce(function (acc,val) {
-    //         return acc.concat(val);
-    //     },[])
-    //     .filter(function (ele) {
-    //         return (ele.suit==='major' || (ele.suit !== 'major' && ele.rank > 0));
-    //     });
+    // // use spread operator to .concat
+    // // arr1 = [...arr1, ...arr2];
+    // deck = [
+    //     ...deck,
+    //     ...arr.map((rank,idx) => {
+    //         return makeCard(suit,rank,idx);
+    //     })
+    // ];
 
-
-    // // make cards using .forEach, .map, .concat
-    // suits.forEach(function (suit) {
-    //     arr=(suit==='major') ? majors : ranks;
-    //     deck=deck.concat(
-    //         arr.map(function(rank,idx) {
-    //             return makeCard(suit,rank,idx);
-    //         })
-    //     );
-    // });
-    // // filter out 0's
-    // deck=deck.filter(function (ele) {
-    //     return (ele.suit==='major' || (ele.suit !== 'major' && ele.rank > 0));
-    // });
-
-    suits.forEach(function (suit) {
+    // use arrow functions and .push
+    suits.forEach((suit) => {
         arr=(suit==='major') ? majors : ranks;
-        arr.forEach(function(rank,idx) {
+        arr.forEach((rank,idx) => {
             if(suit==='major' || (suit!=='major' && idx>0)){
                 deck.push(makeCard(suit,rank,idx));
             }
@@ -2690,7 +2666,7 @@ function drawCards(num = 3) {
 }
 
 function tellFortune(hand) {
-    hand.forEach(function (ele) {
+    hand.forEach((ele) => {
         console.log(
             deck[ele].name.toUpperCase().split(),
             fortunes.interpret[ele].keywords,
@@ -2705,7 +2681,6 @@ function getRandom(max=deck.length-1) {
     let card=Math.round(Math.random()*max);
     return card;
 }
-
 
 function beginReading(){
     makeDeck();
