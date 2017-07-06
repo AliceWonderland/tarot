@@ -2625,16 +2625,41 @@ let deck=[];
 function makeDeck(){
     let arr=[];
 
+    // // make cards using .forEach, .push, .map
+    // suits.forEach((suit) => {
+    //     arr=(suit==='major') ? majors : ranks;
+    //     deck.push(
+    //         arr.map((rank,idx) => {
+    //             return makeCard(suit,rank,idx);
+    //         })
+    //     );
+    // });
+    //
+    // // join arrays using .reduce, remove 0 ranks using .filter
+    // deck=deck
+    //     .reduce((acc,val)  => {
+    //         return acc.concat(val);
+    //     },[])
+    //     .filter((ele) => {
+    //         return (ele.suit==='major' || (ele.suit !== 'major' && ele.rank > 0));
+    //     });
+
     // // use spread operator to .concat
     // // arr1 = [...arr1, ...arr2];
-    // deck = [
-    //     ...deck,
-    //     ...arr.map((rank,idx) => {
-    //         return makeCard(suit,rank,idx);
-    //     })
-    // ];
+    // suits.forEach(function (suit) {
+    //     arr=(suit==='major') ? majors : ranks;
+    //     deck = [
+    //         ...deck,
+    //         ...arr.map((rank,idx) => {
+    //             return makeCard(suit,rank,idx);
+    //         })
+    //     ];
+    // });
+    // // filter out 0's
+    // deck=deck.filter(function (ele) {
+    //     return (ele.suit==='major' || (ele.suit !== 'major' && ele.rank > 0));
+    // });
 
-    // use arrow functions and .push
     suits.forEach((suit) => {
         arr=(suit==='major') ? majors : ranks;
         arr.forEach((rank,idx) => {
@@ -2672,7 +2697,7 @@ function tellFortune(hand) {
             fortunes.interpret[ele].keywords,
             fortunes.interpret[ele].fortune_telling[
                 getRandom(fortunes.interpret[ele].fortune_telling.length-1)
-            ].split()
+                ].split()
         );
     });
 }
@@ -2682,9 +2707,10 @@ function getRandom(max=deck.length-1) {
     return card;
 }
 
-function beginReading(){
+
+function beginReading(cards){
     makeDeck();
-    let hand=drawCards();
+    let hand=drawCards(cards);
     tellFortune(hand);
 }
 

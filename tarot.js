@@ -2707,10 +2707,10 @@ function getRandom(max=deck.length-1) {
 }
 
 
-function beginReading(){
+function beginReading(cards){
     makeDeck();
-    let hand=drawCards();
+    let hand=drawCards(cards);
     tellFortune(hand);
 }
 
-beginReading();
+beginReading(1);
