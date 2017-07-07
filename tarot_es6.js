@@ -2695,8 +2695,8 @@ function tellFortune(hand) {
         console.log(
             deck[ele].name.toUpperCase().split(),
             fortunes.interpret[ele].keywords,
-            fortunes.interpret[ele].fortune_telling[
-                getRandom(fortunes.interpret[ele].fortune_telling.length-1)
+            fortunes.interpret[ele].meanings.light[
+                getRandom(fortunes.interpret[ele].meanings.light.length-1)
                 ].split()
         );
     });
