@@ -2708,7 +2708,7 @@ function getRandom(max=deck.length-1) {
 }
 
 
-function beginReading(cards){
+function beginReading(cards=Math.floor(Math.random()*3)+1){
     makeDeck();
     let hand=drawCards(cards);
     tellFortune(hand);
